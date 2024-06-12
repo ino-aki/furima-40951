@@ -1,66 +1,24 @@
-# テーブル設計
+# README
 
-## users テーブル
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-| Column             | Type    | Options     |
-| ------------------ | ------- | ----------- |
-| nickname           | string  | null: false |
-| email              | string  | null: false, unique: true |
-| encrypted_password | string  | null: false |
-| fullname           | string  | null: false |
-| kananame           | string  | null: false |
-| birthday           | date    | null: false |
+Things you may want to cover:
 
-### Association
+* Ruby version
 
-- has_many :items
-- has_many :purchases
+* System dependencies
 
-## items テーブル
+* Configuration
 
-| Column         | Type       | Options     |
-| -------------- | ---------- | ----------- |
-| image          | string     | null: false |
-| name           | string     | null: false |
-| description    | text       | null: false |
-| category       | integer    | null: false |
-| condition      | integer    | null: false |
-| shippingcost   | integer    | null: false |
-| shippingdays   | integer    | null: false |
-| shippingregion | integer    | null: false |
-| price          | integer    | null: false |
-| user           | references | null: false, foreign_key: true |
+* Database creation
 
-### Association
+* Database initialization
 
-- belongs_to :user
-- has_one :purchase
+* How to run the test suite
 
-## purchases テーブル
+* Services (job queues, cache servers, search engines, etc.)
 
-| Column    | Type       | Options     |
-| --------- | ---------- | ----------- |
-| user_id   | references | null: false, foreign_key: true |
-| item_id   | references | null: false, foreign_key: true |
+* Deployment instructions
 
-### Association
-
-- belongs_to :user
-- belongs_to :item
-- has_one :shippingaddress
-
-## shippingaddresses テーブル
-
-| Column        | Type       | Options     |
-| ------------- | ---------- | ----------- |
-| postalcode    | string     | null: false |
-| prefecture    | integer    | null: false |
-| city          | string     | null: false |
-| streetAddress | string     | null: false |
-| buildingName  | string     | null: false |
-| phoneNumber   | string     | null: false |
-| purchase_id  | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :purchase
+* ...
