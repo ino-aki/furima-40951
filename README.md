@@ -11,7 +11,7 @@
 | first_name         | string | null: false |
 | last_kananame      | string | null: false |
 | first_kananame     | string | null: false |
-| birthdate          | date   | null: false, foreign_key: true |
+| birthdate          | date   | null: false |
 
 ### Association
 
@@ -28,7 +28,7 @@
 | itemcondition_id | integer    | null: false |
 | shippingfee_id   | integer    | null: false |
 | prefecture_id    | integer    | null: false |
-| shippingdays_id  | integer    | null: false |
+| shippingday_id   | integer    | null: false |
 | price            | integer    | null: false |
 | user             | references | null: false, foreign_key: true |
 
@@ -58,7 +58,7 @@
 | prefecture_id  | integer    | null: false |
 | city           | string     | null: false |
 | street_address | string     | null: false |
-| building_name  | string     | null: true  |
+| building_name  | string     |
 | phone_number   | string     | null: false |
 | purchase       | references | null: false, foreign_key: true |
 
