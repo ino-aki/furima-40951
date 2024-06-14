@@ -1,13 +1,15 @@
+require 'gimei'
+
 FactoryBot.define do
   factory :user do
+    nickname { Faker::Name.name }
     email { Faker::Internet.email }
-    encrypted_password { Devise.friendly_token }
-    nickname { Faker::Name.first_name }
-    last_name { Faker::Name.last_name }
-    first_name { Faker::Name.first_name }
-    last_kananame { Faker::Name.last_name.yomi }
-    first_kananame { Faker::Name.first_name.yomi }
-    birthdate { Faker::Date.birthday(min_age: 18, max_age: 65) }
-    # name属性を削除する
+    password { Faker::Internet.password(min_length: 6) }
+    password_confirmation { password }
+    birthdate { Faker::Date.birthday }
+    last_name { Gimei.last.kanji }
+    first_name { Gimei.first.kanji }
+    last_kananame { Gimei.last.katakana }
+    first_kananame { Gimei.first.katakana }
   end
 end

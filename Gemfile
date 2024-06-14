@@ -74,8 +74,9 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'devise'
-
 group :production do
   gem 'pg'
 end
+gem 'devise'
+gem 'gimei'
+gem 'pry-rails'
