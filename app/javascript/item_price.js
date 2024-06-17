@@ -8,7 +8,7 @@ window.addEventListener('turbo:load', () => {
 
     // 数値でない場合や空の場合にNaNが返されるため、その場合は計算を行わない
     if (!isNaN(inputValue)) {
-      // 手数料率と利益率の設定（手数料率は10%とします）
+      // 手数料率の設定（手数料率は10%とします）
       const commissionRate = 0.10;  // 手数料率 10%
 
       // 販売手数料の計算（小数点以下を切り捨てて整数にする）
