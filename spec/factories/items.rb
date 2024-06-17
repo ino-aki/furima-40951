@@ -7,7 +7,7 @@ FactoryBot.define do
     shippingfee_id { Shippingfee.where.not(id: 1).pluck(:id).sample }
     prefecture_id { Prefecture.where.not(id: 1).pluck(:id).sample }
     shippingday_id { Shippingday.where.not(id: 1).pluck(:id).sample }
-    price { Faker::Number.between(from: 300, to: 9999999) }
+    price { Faker::Number.between(from: 300, to: 9_999_999) }
 
     user { association :user }
 
