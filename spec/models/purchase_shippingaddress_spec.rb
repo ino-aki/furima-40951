@@ -4,8 +4,7 @@ RSpec.describe PurchaseShippingaddress, type: :model do
   before do
     user = FactoryBot.create(:user)
     item = FactoryBot.create(:item)
-    purchase = FactoryBot.create(:purchase)
-    @purchase_shippingaddress = FactoryBot.build(:purchase_shippingaddress, user_id: user.id, purchase_id: purchase.id, item_id: item.id)
+    @purchase_shippingaddress = FactoryBot.build(:purchase_shippingaddress, user_id: user.id, item_id: item.id)
   end
 
   describe '購入情報の保存' do
@@ -65,10 +64,10 @@ RSpec.describe PurchaseShippingaddress, type: :model do
         @purchase_shippingaddress.valid?
         expect(@purchase_shippingaddress.errors.full_messages).to include("Item can't be blank")
       end
-      it 'purchaseが紐付いていないと保存できないこと' do
-        @purchase_shippingaddress.purchase_id = nil
+      it "tokenが空では登録できないこと" do
+        @purchase_shippingaddress.token = nil
         @purchase_shippingaddress.valid?
-        expect(@purchase_shippingaddress.errors.full_messages).to include("Purchase can't be blank")
+        expect(@purchase_shippingaddress.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
