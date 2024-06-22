@@ -10,9 +10,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    return if user_signed_in? && current_user == @item.user
-
-    redirect_to root_path
+    if current_user == @item.user && @item.purchase.nil?
+      render :edit
+    else
+      redirect_to root_path
+    end
   end
 
   def update
