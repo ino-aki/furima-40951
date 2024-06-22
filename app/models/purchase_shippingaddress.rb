@@ -2,7 +2,7 @@ class PurchaseShippingaddress
   include ActiveModel::Model
 
   attr_accessor :postalcode, :prefecture_id, :city, :street_address, :building_name, :phone_number, :user_id, :item_id,
-                :purchase_id, :token
+                :token
 
   with_options presence: true do
     validates :token
